@@ -8,9 +8,9 @@ ByteStream::ByteStream( uint64_t capacity ) : capacity_( capacity ) {}
 
 void Writer::push( string data )
 {
-  auto pushed_size = std::min( data.length(), capacity_ - buffer_.size() );
+  auto pushed_size = min( data.length(), capacity_ - buffer_.size() );
   buffer_.insert(
-    buffer_.cend(), data.begin(), data.begin() + static_cast<std::string::difference_type>( pushed_size ) );
+    buffer_.cend(), data.begin(), data.begin() + static_cast<string::difference_type>( pushed_size ) );
   write_count_ += pushed_size;
 }
 
@@ -56,7 +56,7 @@ bool Reader::has_error() const
 
 void Reader::pop( uint64_t len )
 {
-  buffer_.erase( buffer_.cbegin(), buffer_.cbegin() + static_cast<std::string::difference_type>( len ) );
+  buffer_.erase( buffer_.cbegin(), buffer_.cbegin() + static_cast<string::difference_type>( len ) );
   read_count_ += len;
 }
 

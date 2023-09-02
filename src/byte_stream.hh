@@ -11,12 +11,12 @@ class Writer;
 class ByteStream
 {
 protected:
-  std::string buffer_{};
-  uint64_t capacity_{};
-  uint64_t read_count_{};
-  uint64_t write_count_{};
-  bool input_ended_flag_{};
-  bool error_{};
+  std::string buffer_ {};
+  uint64_t capacity_ {};
+  uint64_t read_count_ {};
+  uint64_t write_count_ {};
+  bool input_ended_flag_ {};
+  bool error_ {};
   // Please add any additional state to the ByteStream here, and not to the Writer and Reader interfaces.
 
 public:

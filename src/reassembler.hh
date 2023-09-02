@@ -12,11 +12,11 @@ class Reassembler
   std::uint64_t close_index_ {};
   bool close_flag_ {};
 
-  std::string SpliteFinish( std::uint64_t begin, std::uint64_t end, std::uint64_t first, std::string data );
-  void SplitAndInsertToSubStrs( std::uint64_t begin, std::uint64_t end, std::uint64_t first, std::string data );
+  std::string splite_string( std::uint64_t begin, std::uint64_t end, std::uint64_t first, std::string data );
+  void split_data_to_substrs( std::uint64_t begin, std::uint64_t end, std::uint64_t first, std::string data );
 
-  std::uint64_t BeginIndex( std::map<uint64_t, std::string>::iterator const& it, std::uint64_t end_index );
-  static std::uint64_t EndIndex( std::map<uint64_t, std::string>::iterator const& it );
+  std::uint64_t get_start_index( std::map<uint64_t, std::string>::iterator const& it, std::uint64_t end_index );
+  static std::uint64_t get_end_index( std::map<uint64_t, std::string>::iterator const& it );
 
 public:
   /*

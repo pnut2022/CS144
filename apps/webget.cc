@@ -13,9 +13,9 @@ void get_URL( const string& host, const string& path )
   sock.connect( Address( host, "http" ) );
   sock.write( "GET " + path + " HTTP/1.1\r\nHost: " + host + "\r\n\r\n" );
   sock.shutdown( SHUT_WR );
-  std::string out_buf{};
+  std::string out_buf {};
   while ( !sock.eof() ) {
-    sock.read(out_buf);
+    sock.read( out_buf );
     cout << out_buf;
   }
   sock.close();

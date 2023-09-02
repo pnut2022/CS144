@@ -6,6 +6,8 @@
 
 class TCPReceiver
 {
+  std::optional<Wrap32> zero_point_ {};
+
 public:
   /*
    * The TCPReceiver receives TCPSenderMessages, inserting their payload into the Reassembler
