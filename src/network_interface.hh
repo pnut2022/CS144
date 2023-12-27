@@ -41,6 +41,27 @@ private:
   // IP (known as Internet-layer or network-layer) address of the interface
   Address ip_address_;
 
+  struct IpWaiter
+  {
+    EthernetAddress addr {};
+    uint32_t waiting_time { 0 };
+  };
+
+  std::unordered_map<uint32_t, IpWaiter> cached_ip_ {};
+
+  struct ArpWaiter
+  {
+    std::vector<InternetDatagram> cached_data {};
+    uint32_t waiting_time { 0 };
+  };
+
+  std::unordered_map<uint32_t, ArpWaiter> waiting_arps_ {};
+
+  std::queue<EthernetFrame> out_frame_ {};
+
+  static constexpr uint32_t kIpTtl { 30000 };
+  static constexpr uint32_t kArpTtl { 5000 };
+
 public:
   // Construct a network interface with given Ethernet (network-access-layer) and IP (internet-layer)
   // addresses
